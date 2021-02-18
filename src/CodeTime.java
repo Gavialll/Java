@@ -377,7 +377,7 @@ public class CodeTime {
  git push -u origin master - Вигрузка на гілку"branch"  master
  git checkout -b НазваBaranch  - Створення нової гілки
  git pull origin master - використовувати на іншій гілці щоб стягнути всі данні на другу гілку
- git push origin НазваГілки - Push На потрібну гілку
+ git push origin НазваГілки - Push На потрібну гілку"branch"
 
  */
 
