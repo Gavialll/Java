@@ -375,7 +375,9 @@ public class CodeTime {
  git config --global user.email myEmail@example.com - Один раз для настройки проекту
  git remote add origin https://github.com/Gavialll/Java.git - Підключення до GitHub
  git push -u origin master - Вигрузка на гілку"branch"  master
-
+ git checkout -b НазваBaranch  - Створення нової гілки
+ git pull origin master - використовувати на іншій гілці щоб стягнути всі данні на другу гілку
+ git push origin НазваГілки - Push На потрібну гілку"branch"
 
  */
 
