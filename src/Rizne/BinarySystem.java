@@ -1,3 +1,5 @@
+package Rizne;
+
 import java.util.*;
 
 public class BinarySystem {
