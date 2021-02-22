@@ -14,12 +14,11 @@ public class Start {
         rectangle.Perimeter();
 
         //конструктор з параметрами за замовчуваннм
-        RectangleSquare pl = new RectangleSquare();
-        pl.Square();
+        rectangle.Square();
 
         //Присвоєння власних параметрів
-        pl.setHeight(5);
-        pl.setWidth(6);
-        pl.Square();
+        rectangle.setHeight(5);
+        rectangle.setWidth(5);
+        rectangle.Square();
     }
 }

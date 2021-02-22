@@ -5,9 +5,8 @@ public class Man {
     private int damage;
     private String name;
 
-    public int attack (int getObject){
-        getObject = getObject - damage;
-        return getObject;
+    public void attack(Man man){
+        man.setHp(man.getHp() - this.damage);
     }
 
     public Man(int hp, int damage, String name) {

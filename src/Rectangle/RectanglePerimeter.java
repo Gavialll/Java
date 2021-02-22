@@ -8,6 +8,10 @@ public class RectanglePerimeter {
         int perimeter = height + width + height + width;
         System.out.println("Периметр прямокутника = " + perimeter);
     }
+    public void Square(){
+        int pl = height * width;
+        System.out.println("Площа прямокутника = " + pl);
+    }
 
     public RectanglePerimeter(int height, int width) {
         this.height = height;

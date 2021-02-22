@@ -21,8 +21,7 @@ public class Start {
                 case 0: {
                     System.out.println("Terminator атакує");
                     Man[] man = {neo, ironMan};
-                    int damage = terminator.attack(man[random].getHp());
-                    man[random].setHp(damage);
+                    terminator.attack(man[random]);
                     System.out.println(man[random].getName());
                     System.out.println("Залишилoся " + man[random].getHp() + " HP");
                     System.out.println("Атаку завершено\n----------");
@@ -37,10 +36,9 @@ public class Start {
                 case 1: {
                     System.out.println("IronMan атакує" );
                     Man[] man = {neo, terminator};
-                    int damage = ironMan.attack(man[random].getHp());
-                    man[random].setHp(damage);
+                    ironMan.attack(man[random]);
                     System.out.println(man[random].getName());
-                    System.out.println("Залишилoся" + man[random].getHp() + "HP");
+                    System.out.println("Залишилoся " + man[random].getHp() + "HP");
                     System.out.println("Атаку завершено\n----------");
 
                     if (man[random].getHp() <= 0) {
@@ -53,10 +51,9 @@ public class Start {
                 case 2: {
                     System.out.println("Neo атакує");
                     Man[] man = {terminator, ironMan};
-                    int damage = neo.attack(man[random].getHp());
-                    man[random].setHp(damage);
+                    neo.attack(man[random]);
                     System.out.println(man[random].getName());
-                    System.out.println("Залишилoся" + man[random].getHp() + "HP");
+                    System.out.println("Залишилoся " + man[random].getHp() + "HP");
                     System.out.println("Атаку завершено\n----------");
 
                     if (man[random].getHp() <= 0) {
