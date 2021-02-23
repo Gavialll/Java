@@ -1,3 +1,5 @@
+package Rizne;
+
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -227,7 +229,7 @@ public class CodeTime {
          System.out.println(masiv[9]);
     }
 
-    //CodeTime
+    //Rizne.CodeTime
     public static void oneCodeTime() {
         Scanner scan = new Scanner(System.in);
         int[] mas = new int[10];
