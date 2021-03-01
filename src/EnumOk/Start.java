@@ -2,8 +2,7 @@ package EnumOk;
 
 import java.util.Scanner;
 
-/** Ніби поняв далі буде видно.
- *  А так все ок, чи бувають гірші випадки*/
+
 public class Start {
 
     public static void main(String[] args) throws Exception {
