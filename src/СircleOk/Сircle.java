@@ -1,4 +1,4 @@
-package Сircle;
+package СircleOk;
 
 public class Сircle {
     private double radius;

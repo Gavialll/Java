@@ -1,4 +1,4 @@
-package Robot;
+package RobotOk;
 
 public class Robot {
     public void work(){

@@ -1,4 +1,4 @@
-package InterfaceNO;
+package InterfaceOk;
 
 import java.util.Scanner;
 
@@ -13,11 +13,11 @@ while(true) {
     double b = scanner.nextDouble();
 
     MyCalculator myCalculator = new MyCalculator(a, b);
-    myCalculator.Plus();
-    myCalculator.Minus();
-    myCalculator.Multiply();
-    myCalculator.Devide();
-    System.out.println("------------------------------");
+    myCalculator.plus();
+    myCalculator.minus();
+    myCalculator.multiply();
+    myCalculator.devide();
+    System.out.println("----------------------");
 }
 
 

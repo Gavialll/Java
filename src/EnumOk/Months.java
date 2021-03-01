@@ -1,4 +1,4 @@
-package EnumNO;
+package EnumOk;
 
 public enum Months {
     JANUARY(31, Season.WINTER),
@@ -17,7 +17,7 @@ public enum Months {
     private int day;
     private Season season;
 
-    public static void similarMonths(Season season){
+    public void similarMonths(){
         System.out.println("Місяці з однаковою порою року");
         for (Months months : Months.values()) {
             if(months.getSeason().equals(season)){
@@ -25,14 +25,14 @@ public enum Months {
             }
         }
     }
-    public static void similarDays(int day){
+    public void similarDays(){
         for (Months months : Months.values()) {
             if (months.getDay() == day) {
                 System.out.println(months.name());
             }
         }
     }
-    public static void maxDay(int day){
+    public void maxDay(){
         boolean tr = true;
         for (Months months : Months.values()) {
             if (months.getDay() < day) {
@@ -44,7 +44,7 @@ public enum Months {
             System.out.println("Немає місяців з меншою кількістю днів");
         }
     }
-    public static void minDay(int day){
+    public void minDay(){
         boolean tr = true;
         for (Months months : Months.values()) {
             if (months.getDay() > day) {
@@ -57,7 +57,7 @@ public enum Months {
             }
 
     }
-    public static void theNextSeason(Season season){
+    public void theNextSeason(){
       int num = season.ordinal();
       num++;
         if (num == 0) {
@@ -72,7 +72,7 @@ public enum Months {
             System.out.println(Season.WINTER);
         }
     }
-    public static void thePreviousSeason(Season season){
+    public void thePreviousSeason(){
         int num = season.ordinal();
         num--;
         //if(num < 0){
@@ -110,7 +110,7 @@ public enum Months {
             System.out.println(Season.AUTUMN);
         }*/
     }
-    public static void oddDay(){
+    public void oddDay(){
         System.out.println("Непарна кількість днів");
         for (Months months : Months.values()) {
             if(months.getDay() == 31){
@@ -118,7 +118,7 @@ public enum Months {
             }
         }
     }
-    public static void evenDay(){
+    public void evenDay(){
         System.out.println("Парна кількість днів");
         for (Months months : Months.values()) {
             if(months.getDay() == 30 || months.getDay() == 28){
@@ -126,9 +126,9 @@ public enum Months {
             }
         }
     }
-    public static void thisMonthEvenDay(String nameMonths) {
+    public void thisMonthEvenDay() {
         for (Months months : Months.values()) {
-            if (months.name().equals(nameMonths)) {
+            if (months.name().equals(this.name())) {
                 if(months.getDay() % 2 == 0){
                     System.out.println("Місяць має парну кількість днів");
                 }
@@ -139,31 +139,19 @@ public enum Months {
 
         }
     }
-    public static Season audit(String nameMonths) throws Exception {
-        Season nameSeason = null;
+    public void audit() throws Exception {
         boolean tr = true;
             for (Months months : Months.values()) {
-                if (months.name().equals(nameMonths)) {
+                if (months.name().equals(this.name())) {
                     System.out.println("Є такий місяць");
-                    nameSeason = months.getSeason();
                     tr = false;
                 }
             }
             if (tr) {
                 throw new Exception();
             }
+    }
 
-        return nameSeason;
-    }
-    public static int numberOfDays(String nameMonths){
-        int numberOfDays = 0;
-        for (Months months : Months.values()) {
-            if (months.name().equals(nameMonths)) {
-                numberOfDays = months.day;
-            }
-        }
-        return numberOfDays;
-    }
 
 
     Months(int day, Season season) {

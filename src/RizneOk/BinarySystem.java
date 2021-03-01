@@ -1,4 +1,4 @@
-package Rizne;
+package RizneOk;
 
 import java.util.*;
 

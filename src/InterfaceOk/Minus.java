@@ -1,6 +1,6 @@
-package InterfaceNO;
+package InterfaceOk;
 
 public interface Minus {
-    void Minus();
+    void minus();
 
 }

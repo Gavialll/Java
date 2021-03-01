@@ -1,29 +1,29 @@
-package InterfaceNO;
+package InterfaceOk;
 
 public class MyCalculator implements Numerable {
     private double a;
     private double b;
 
     @Override
-    public void Devide() {
+    public void devide() {
         double c = a / b;
         System.out.println("Ділення: " + c);
     }
 
     @Override
-    public void Minus() {
+    public void minus() {
         double c = a - b;
         System.out.println("Віднімання: " + c);
     }
 
     @Override
-    public void Multiply() {
+    public void multiply() {
         double c = a * b;
         System.out.println("Множення: " + c);
     }
 
     @Override
-    public void Plus() {
+    public void plus() {
         double c = a + b;
         System.out.println("Додавання: " + c);
     }

@@ -1,4 +1,4 @@
-package Game;
+package GameOk;
 
 public class Start {
     public static void main (String[] args) {

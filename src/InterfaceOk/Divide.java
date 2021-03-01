@@ -1,5 +1,5 @@
-package InterfaceNO;
+package InterfaceOk;
 
 public interface Divide {
-     void Devide();
+     void devide();
 }

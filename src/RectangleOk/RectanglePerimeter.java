@@ -1,4 +1,4 @@
-package Rectangle;
+package RectangleOk;
 
 public class RectanglePerimeter {
     private int height;

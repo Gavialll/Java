@@ -1,4 +1,4 @@
-package Game;
+package GameOk;
 
 public class Man {
     private int hp;

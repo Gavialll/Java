@@ -1,6 +1,6 @@
-package InterfaceNO;
+package InterfaceOk;
 
 public interface Multiply {
-    void Multiply();
+    void multiply();
 
 }

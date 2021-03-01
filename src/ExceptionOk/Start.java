@@ -1,4 +1,4 @@
-package Exception;
+package ExceptionOk;
 
 import java.util.Scanner;
 

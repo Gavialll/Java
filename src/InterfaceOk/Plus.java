@@ -1,7 +1,7 @@
-package InterfaceNO;
+package InterfaceOk;
 
 public interface Plus {
-     void Plus();
+     void plus();
 
 
 }

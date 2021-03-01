@@ -1,4 +1,4 @@
-package Animals;
+package AnimalsOk;
 
 public class Animal {
     private int age;

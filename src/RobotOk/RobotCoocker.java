@@ -1,4 +1,4 @@
-package Robot;
+package RobotOk;
 
 public class RobotCoocker extends Robot {
 

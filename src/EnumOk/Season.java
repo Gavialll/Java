@@ -1,4 +1,4 @@
-package EnumNO;
+package EnumOk;
 
 public enum Season {
     WINTER,

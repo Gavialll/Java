@@ -1,19 +1,21 @@
-package EnumNO;
+package EnumOk;
 
-import ExceptionOk.UnderAgeException;
 import java.util.Scanner;
 
+/** Ніби поняв далі буде видно.
+ *  А так все ок, чи бувають гірші випадки*/
 public class Start {
+
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
+
                 System.out.print("Введіть місяць: ");
                 String nameMonths = scanner.next().toUpperCase();
 
-                Season nameSeason = Months.audit(nameMonths);
-                int day = Months.numberOfDays(nameMonths);
+                Months months = Months.valueOf(nameMonths);
 
                 System.out.println("Меню");
                 System.out.println("0 : Перевірити чи є такий місяць");
@@ -35,40 +37,46 @@ public class Start {
                 }
 
                 switch (num) {
+
+                    case 0: {
+                        months.audit();
+                        break;
+                    }
+
                     case 1: {
-                        Months.similarMonths(nameSeason);
+                        months.similarMonths();
                         break;
                     }
                     case 2: {
-                        Months.similarDays(day);
+                        months.similarDays();
                         break;
                     }
                     case 3: {
-                        Months.maxDay(day);
+                        months.maxDay();
                         break;
                     }
                     case 4: {
-                        Months.minDay(day);
+                        months.minDay();
                         break;
                     }
                     case 5: {
-                        Months.theNextSeason(nameSeason);
+                        months.theNextSeason();
                         break;
 
                     }case 6: {
-                        Months.thePreviousSeason(nameSeason);
+                        months.thePreviousSeason();
                         break;
                     }
                     case 7: {
-                        Months.evenDay();
+                        months.evenDay();
                         break;
                     }
                     case 8: {
-                        Months.oddDay();
+                        months.oddDay();
                         break;
                     }
                     case 9: {
-                        Months.thisMonthEvenDay(nameMonths);
+                        months.thisMonthEvenDay();
                         break;
                     }
                 }

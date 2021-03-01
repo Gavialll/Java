@@ -1,4 +1,4 @@
-package Сircle;
+package СircleOk;
 
 public class Start {
     public static void main (String[] args) {

@@ -1,4 +1,4 @@
-package Exception;
+package ExceptionOk;
 
 public class UnderAgeException extends Exception{
 
