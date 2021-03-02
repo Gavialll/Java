@@ -1,2 +1,4 @@
-package InterfaceOk;public class MyException {
+package InterfaceOk;
+
+public class MyException extends Exception{
 }

@@ -5,7 +5,7 @@ public class MyCalculator implements Numerable {
     private double b;
 
     @Override
-    public void devide() {
+    public void devide() throws IllegalAccessException {
         double c = a / b;
         System.out.println("Ділення: " + c);
     }

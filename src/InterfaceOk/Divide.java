@@ -1,5 +1,5 @@
 package InterfaceOk;
 
 public interface Divide {
-     void devide();
+     void devide() throws IllegalAccessException;
 }
