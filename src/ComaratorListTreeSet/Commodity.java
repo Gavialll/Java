@@ -3,11 +3,10 @@ package ComaratorListTreeSet;
 import java.util.*;
 
 public class Commodity {
-    private List list;
+    private List<Product> list;
+    private Scanner scanner;
 
     public void addProduct(){
-
-        Scanner scanner = new Scanner(System.in);
         boolean tr = true;
 
         //while (tr) {
@@ -40,19 +39,26 @@ public class Commodity {
             //}
     }
     public void removeProduct() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Видалити елемент: ");
         String str = scanner.nextLine();
 
-        for (int i = 0; i < list.size(); i++) {
+        Iterator<Product> iterator = list.iterator();
+        while (iterator.hasNext()){
 
-            Product product = (Product) list.get(i);
-
-            if (product.getName().equals(str)){
-                list.remove(product);
+            if(iterator.next().getName().equals(str)){
+                iterator.remove();
             }
         }
+
+        //for (int i = 0; i < list.size(); i++) {
+        //
+        //    Product product = list.get(i);
+        //
+        //    if (product.getName().equals(str)){
+        //        list.remove(product);
+        //    }
+        //}
 
                 // for (Product product : list){
                 //     if(product.getName().equals(str)){
@@ -61,14 +67,13 @@ public class Commodity {
                 // }
     }
     public void changeProduct(){
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Товар для зміни: ");
         String str = scanner.nextLine();
 
         for (int i = 0; i < list.size(); i++) {
 
-            Product product = (Product) list.get(i);
+            Product product = list.get(i);
 
             if(product.getName().equals(str)){
                 System.out.println("Commands: WIDTH, WEIGHT, LENGTH, NAME");
@@ -101,25 +106,16 @@ public class Commodity {
 
         Collections.sort(list);
 
-        System.out.println("Name | Length | Width | Weight");
-        for (int i = 0; i < list.size(); i++) {
-
-            Product product = (Product) list.get(i);
-
-            System.out.println(product.getName() + " | " +
-                    product.getLength() + " | " +
-                    product.getWidth() + " | " +
-                    product.getWeight());
-        }
+        sout();
     }
     public void sortLength(){
         LengthComparator lengthComparator = new LengthComparator();
         Set<Product> treeSet = new TreeSet<>(lengthComparator);
-
         treeSet.addAll(list);
 
         System.out.println("Name | Length | Width | Weight");
-        for (Product product : treeSet){
+        for (Product product : treeSet) {
+
             System.out.println(product.getName() + " | " +
                     product.getLength() + " | " +
                     product.getWidth() + " | " +
@@ -129,31 +125,17 @@ public class Commodity {
     public void sortWidth(){
         WidthComparator widthComparator = new WidthComparator();
         Collections.sort(list, widthComparator);
-        System.out.println("Name | Length | Width | Weight");
-        for (int i = 0; i < list.size(); i++) {
-            Product product = (Product) list.get(i);
-            System.out.println(product.getName() + " | " +
-                    product.getLength() + " | " +
-                    product.getWidth() + " | " +
-                    product.getWeight());
-        }
+
+        sout();
     }
     public void sortWeight(){
         WeightComparator weightComparator = new WeightComparator();
         Collections.sort(list, weightComparator);
-        System.out.println("Name | Length | Width | Weight");
-        for (int i = 0; i < list.size(); i++) {
-            Product product = (Product) list.get(i);
-            System.out.println(product.getName() + " | " +
-                    product.getLength() + " | " +
-                    product.getWidth() + " | " +
-                    product.getWeight());
-        }
 
+        sout();
     }
     public void info(){
 
-        Scanner scanner = new Scanner(System.in);
             try {
                 System.out.print("Введіть назву товару: ");
                 String str = scanner.nextLine();
@@ -172,8 +154,18 @@ public class Commodity {
         System.out.println("Товар незнайдено");
     }
 }
-    public Commodity(List list) {
-        this.list = list;
+    public void sout(){
+    System.out.println("Name | Length | Width | Weight");
+    for (int i = 0; i < list.size(); i++) {
+        Product product = (Product) list.get(i);
+        System.out.println(product.getName() + " | " +
+                product.getLength() + " | " +
+                product.getWidth() + " | " +
+                product.getWeight());
     }
-
+}
+    public Commodity(List list, Scanner scanner) {
+        this.list = list;
+        this.scanner = scanner;
+    }
 }

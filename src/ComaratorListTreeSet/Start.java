@@ -8,8 +8,8 @@ public class Start {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        List<Object> list = new ArrayList<>();
-        Commodity commodity = new Commodity(list);
+        List<Product> list = new ArrayList<>();
+        Commodity commodity = new Commodity(list , scanner);
 
             while (true) {
                 try {
