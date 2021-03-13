@@ -6,6 +6,17 @@ public class Start  implements Comparator<String> {
 
     public static void main(String[] args) throws Exception {
 
+        /*Користувач з консолі має вводити слова доти, доки не введе “break”,
+всі слова записуються в List.
+Написати функцію для :
+виведення користувачу всіх слова, які він ввів!
+виведення слів, які починаються на “s”!
+виведення слів, які мають кількість букв більше ніж 5!
+перевірити розмір ліста. Якщо більше 5, то видалити всі наступні
+елеменити і залишити лише 5 перших.
+Якщо ліст пустий, викинути Exception з відповідним повідомленням.*/
+
+        String gmail = "@gmail.com";
         String[] str = {"asd", "qweasd", "s", "qa", "ssx", "edcz", "fgh", "rfvtg", "asdfghj"};
 
         List<String> list = new ArrayList() ;
@@ -33,7 +44,7 @@ public class Start  implements Comparator<String> {
         //виведення слів, які починаються на “s”!
         for (String s : list) {
             if (s.startsWith("s")) {
-                System.out.print(s + " | ");
+                System.out.print(s + gmail  + " | ");
             }
         }
         System.out.println();
@@ -41,7 +52,7 @@ public class Start  implements Comparator<String> {
         //виведення слів, які мають кількість букв більше ніж 5!
         for (String s : list) {
             if (s.length() > 5) {
-                System.out.print(s + " | ");
+                System.out.print(s + gmail + " | ");
             }
         }
 
@@ -56,7 +67,7 @@ public class Start  implements Comparator<String> {
             }
         }
         for (String s : list) {
-                System.out.print(s + " | ");
+                System.out.print(s + gmail + " | ");
             }
         }
 
