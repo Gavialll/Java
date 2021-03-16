@@ -1,11 +1,11 @@
-package Map;
+package Map.DZ1;
 
 public class Car implements Comparable<Car> {
     private String model;
     private String brand;
     private String color;
     private Integer graduationYear;
-    private String registration;
+
 
     public Car(String brand, String model, String color, Integer graduationYear) {
         this.brand = brand;
@@ -56,7 +56,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car o) {
-        int res = this.registration.compareTo(o.registration) ;
+        int res = this.model.compareTo(o.model) ;
         return res;
     }
 }
