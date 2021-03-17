@@ -5,20 +5,19 @@ import java.util.*;
 public class Start {
     public static void main(String[] args) throws Exception {
 
-        Map<String, List<Car>> mapCar = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
+        Map<String, List<Car>> mapCar = new HashMap<>();
 
         while (true) {
             try {
-
-                System.out.println("Меню");
-                System.out.println("0 : add Registration    |");
-                System.out.println("1 : delete Car          |");
-                System.out.println("2 : delete Registration |");
-                System.out.println("3 : add Car             |");
-                System.out.println("4 : info All            |");
-                System.out.println("------------------------");
-                System.out.print("Введіть дію: ");
+                System.out.println("Menu");
+                System.out.print("0 : add Registration |");
+                System.out.print(" 1 : delete Car |");
+                System.out.print(" 2 : delete Registration |");
+                System.out.print(" 3 : add Car |");
+                System.out.println(" 4 : info All |");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.print("Enter An Action: ");
 
                 int num = 0;
                 if(scanner.hasNextInt()){
@@ -26,7 +25,6 @@ public class Start {
                 }
 
                 switch (num) {
-
                     case 0: {
                     System.out.println("Add Registration");
                     System.out.print("Enter Registration : ");
@@ -36,31 +34,32 @@ public class Start {
                         break;
                     }
                     case 1: {
-                        System.out.print("Registration: ");
+                        System.out.println("Car Remove");
+                        System.out.print("Enter Registration Car: ");
                         String registration = scanner.next();
-                        System.out.print("Car Remove: ");
+                        System.out.print("Enter Brand: ");
                         String brand = scanner.next();
                         removeCar(mapCar, registration, brand);
                         break;
                     }
                     case 2: {
-                        System.out.print("Remove Registration: ");
+                        System.out.println("Remove Registration");
+                        System.out.print("Enter Registration: ");
                         String str = scanner.next();
                         mapCar.remove(str);
                         break;
                     }
                     case 3: {
-                        System.out.print("Registration: ");
+                        System.out.println("Add Car");
+                        System.out.print("Enter Registration: ");
                         String registr = scanner.next();
-                            List<Car> lists = mapCar.get(registr);
-                            System.out.println(lists.size());
+                            List<Car> listCar = mapCar.get(registr);
 
-                        if(true){
+                        if(listCar == null){
                             mapCar.put(registr, addCarList());
                         }
                         else {
-                            List<Car> list = mapCar.get(registr);
-                            mapCar.put(registr, addCarList(list));
+                            mapCar.put(registr, addCarList(listCar));
                         }
                         break;
                     }
@@ -74,33 +73,29 @@ public class Start {
             }
         }
     }
-    public static boolean notEmpty(List<Car> a) {
-        return !a.isEmpty();
-    }
+
     public static void removeCar(Map<String, List<Car>> mapCar, String key, String brand) {
 
-        for (Map.Entry<String, List<Car>> entry : mapCar.entrySet()) {
-            System.out.println("Registration: " + entry.getKey());
-            Iterator<Car> iterator = entry.getValue().iterator();
-            while (iterator.hasNext()){
-                if(mapCar.containsKey(key)) {
-                    if(iterator.next().getBrand().equals(brand))
-                        iterator.remove();
-                }
+    List list = mapCar.get(key);
+    Iterator<Car> iterator = list.iterator();
+        while (iterator.hasNext()){
+                if(iterator.next().getBrand().equals(brand))
+                    iterator.remove();
             }
         }
-    }
     public static void infoCar(Map<String, List<Car>> mapCar) {
 
         for (Map.Entry<String, List<Car>> entry : mapCar.entrySet()) {
             System.out.println("Registration: " + entry.getKey());
             Iterator<Car> iterator = entry.getValue().iterator();
+
             while (iterator.hasNext()){
                 iterator.next().infoCar();
             }
         }
     }
     public static List addCarList() {
+
         Scanner scanner = new Scanner(System.in);
         List<Car> listCar = new ArrayList<>();
         
@@ -117,15 +112,6 @@ public class Start {
 
         listCar.add(car);
         return listCar;
-
-        //Car mazda = new Car("Mazda", "626", "Red", 1991);
-        //Car volkswagen = new Car("Volkswagen", "Passat b6", "Black", 2009);
-        //Car vaz = new Car("Vaz", "2109", "Red", 1992);
-        //Car opel = new Car("Opel", "Vectra", "Yellow", 2000);
-        //
-        //listCar.add(mazda);
-        //listCar.add(volkswagen);
-        //listCar.add(vaz);
     }
     public static List<Car> addCarList(List<Car> listCar) {
         Scanner scanner = new Scanner(System.in);

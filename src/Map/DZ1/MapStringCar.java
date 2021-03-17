@@ -6,8 +6,8 @@ public class MapStringCar {
 /*
     Описати структуру коли людині може належати список акаунтів та зробити
     можливість
-        - додати "реєстрацію" людину до списку;
-        - додати "машину" акаунт до списку;
+        - додати  людину до списку;
+        - додати  акаунт до списку;
         - видалити акаунт для певної людини;
         - видалити людину;
         - показати всю мапу людей та їх акаунти.
@@ -24,14 +24,14 @@ public class MapStringCar {
             System.out.println("Add Car");
             System.out.print("Brand: ");
             String brand = scanner.nextLine();
-            //System.out.print("Model: ");
-            //String model = scanner.nextLine();
-            //System.out.println("Color: ");
-            //String color = scanner.nextLine();
-            //System.out.print("Graduation Year: ");
-            //Integer graduationYear = scanner.nextInt();
+            System.out.print("Model: ");
+            String model = scanner.nextLine();
+            System.out.println("Color: ");
+            String color = scanner.nextLine();
+            System.out.print("Graduation Year: ");
+            Integer graduationYear = scanner.nextInt();
 
-            Car car = new Car(brand, "model", "color", 1995);
+            Car car = new Car(brand, model, color, graduationYear);
 
             System.out.print("Registration: ");
             mreoMap.put(scanner.nextLine(), car);
