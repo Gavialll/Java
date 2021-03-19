@@ -3,11 +3,13 @@ package Map.DZ3;
 public class Animal {
     private String nameAnimal;
     private String typeAnimal;
+    private boolean animalBool = true;
 
     public Animal(String nameAnimal, String typeAnimal) {
         this.nameAnimal = nameAnimal;
         this.typeAnimal = typeAnimal;
     }
+
 
     public String getNameAnimal() {
         return nameAnimal;
@@ -23,5 +25,13 @@ public class Animal {
 
     public void setTypeAnimal(String typeAnimal) {
         this.typeAnimal = typeAnimal;
+    }
+
+    public boolean isAnimalBool() {
+        return animalBool;
+    }
+
+    public void setAnimalBool(boolean animalBool) {
+        this.animalBool = animalBool;
     }
 }
