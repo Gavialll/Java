@@ -34,4 +34,9 @@ public class Animal {
     public void setAnimalBool(boolean animalBool) {
         this.animalBool = animalBool;
     }
+
+    @Override
+    public String toString() {
+        return nameAnimal + " " + typeAnimal;
+    }
 }
