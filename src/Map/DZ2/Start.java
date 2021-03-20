@@ -53,13 +53,12 @@ public class Start {
                         System.out.println("Add Car");
                         System.out.print("Enter Registration: ");
                         String registr = scanner.next();
-                            List<Car> listCar = mapCar.get(registr);
-
-                        if(listCar == null){
-                            mapCar.put(registr, addCarList());
+                        List<Car> listCar = mapCar.get(registr);
+                        if(mapCar.containsKey(registr)){
+                            listCar.add(addCar());
                         }
                         else {
-                            mapCar.put(registr, addCarList(listCar));
+                            mapCar.put(registr, addCarList());
                         }
                         break;
                     }
@@ -113,7 +112,7 @@ public class Start {
         listCar.add(car);
         return listCar;
     }
-    public static List<Car> addCarList(List<Car> listCar) {
+    public static Car addCar() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Add Car New");
@@ -127,7 +126,6 @@ public class Start {
         Integer graduationYear = scanner.nextInt();
         Car car = new Car(brand, model, color, graduationYear);
 
-        listCar.add(car);
-        return listCar;
+        return car;
     }
 }
