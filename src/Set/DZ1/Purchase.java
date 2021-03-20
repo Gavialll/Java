@@ -1,5 +1,7 @@
 package Set.DZ1;
 
+import java.util.Objects;
+
 public class Purchase implements Comparable<Purchase>{
     private String shopping;
     private Integer number;
@@ -29,5 +31,18 @@ public class Purchase implements Comparable<Purchase>{
     public int compareTo(Purchase o) {
         int res = this.shopping.compareTo(o.shopping);
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Purchase purchase = (Purchase) o;
+        return Objects.equals(shopping, purchase.shopping);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(shopping);
     }
 }
