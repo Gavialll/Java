@@ -60,11 +60,6 @@ public class Commodity {
         //    }
         //}
 
-                // for (Product product : list){
-                //     if(product.getName().equals(str)){
- //непрацює     //        list.remove(product);
-                //     }
-                // }
     }
     public void changeProduct(){
 
@@ -109,8 +104,23 @@ public class Commodity {
         sout();
     }
     public void sortLength(){
-        LengthComparator lengthComparator = new LengthComparator();
-        Set<Product> treeSet = new TreeSet<>(lengthComparator);
+        Comparator comparatorLength = new Comparator<Product>() {
+            @Override
+            public int compare(Product product, Product product1) {
+                int res;
+                if(product.getLength() == product1.getLength()){
+                    res = 0;
+                }
+                if(product.getLength() > product1.getLength()){
+                    res = 1;
+                }
+                else {
+                    res = -1;
+                }
+                return res;
+            }
+        };
+        Set<Product> treeSet = new TreeSet<>(comparatorLength);
         treeSet.addAll(list);
 
         System.out.println("Name | Length | Width | Weight");
@@ -122,15 +132,44 @@ public class Commodity {
                     product.getWeight());
         }
     }
-    public void sortWidth(){
-        WidthComparator widthComparator = new WidthComparator();
-        Collections.sort(list, widthComparator);
+    public void sortWidth() {
+
+        Comparator comparatorWidth = new Comparator<Product>() {
+            @Override
+            public int compare(Product product, Product product1) {
+                int res;
+                if(product.getWidth() == product1.getWidth()){
+                    res = 0;
+                }
+                if(product.getWidth() > product1.getWidth()){
+                    res = 1;
+                }
+                else {
+                    res = -1;
+                }
+                return res;
+            }
+        };
+        Collections.sort(list, comparatorWidth);
 
         sout();
     }
     public void sortWeight(){
-        WeightComparator weightComparator = new WeightComparator();
-        Collections.sort(list, weightComparator);
+
+        Comparator comparatorWeight = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if(o1.getWeight() == o2.getWeight()){
+                    return 0;
+                }
+                if(o1.getWeight() > o2.getWeight()) {
+                    return 1;
+                }else {
+                    return -1;
+                }
+            }
+        };
+        Collections.sort(list, comparatorWeight);
 
         sout();
     }
