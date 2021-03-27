@@ -1,17 +1,19 @@
 package IOSerialization;
 
+import Map.DZ3.Person;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    public Employee(String name, int id, int salary) {
+
+    private String name;
+    private transient int id;
+    private Person salary;
+
+    public Employee(String name, int id, Person salary) {
         this.name = name;
         this.id = id;
         this.salary = salary;
     }
-
-    private String name;
-    private int id;
-    private transient int salary;
 
     public String getName() {
         return name;
@@ -29,11 +31,11 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
-    public int getSalary() {
+    public Person getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(Person salary) {
         this.salary = salary;
     }
 }
