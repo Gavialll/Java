@@ -19,9 +19,9 @@ public class Start {
 
 
         Methods methods = new Methods();
-        methods.serialize(list, "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
+        methods.serialize(list, "/Users/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
 
-        List<Employee> test = (List<Employee>) methods.deSerialize("/Users/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
+        List<Employee> test = (List<Employee>) methods.deSerialize("/sers/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
 
         for (Employee e : test) {
             System.out.println(e.getName() + " " + e.getId() + " " + e.getSalary());

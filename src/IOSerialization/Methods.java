@@ -5,25 +5,32 @@ import java.io.*;
 public class Methods<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public void serialize(T obj, String path ) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(path);
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+    public void serialize(T obj, String path) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(path);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
 
-        objectOutputStream.writeObject(obj);
+            objectOutputStream.writeObject(obj);
 
-        fileOutputStream.close();
-        objectOutputStream.close();
-        System.out.println("OK Serialize");
+            System.out.println("OK Serialize");
+        } catch (IOException e) {
+            System.out.println("NO Serialize");
+        }
     }
-    public T deSerialize(String path) throws IOException, ClassNotFoundException {
 
-        FileInputStream fileInputStream = new FileInputStream(path);
-        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+    public T deSerialize(String path) {
 
-        T t = (T) objectInputStream.readObject();
+        try (FileInputStream fileInputStream = new FileInputStream(path);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
 
-        System.out.println("OK DeSerialize");
-        return t;
+            T t = (T) objectInputStream.readObject();
+
+            System.out.println("OK DeSerialize");
+            return t;
+
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("NO DeSerialize");
+        }
+        return null;
     }
 
     public Methods() {
