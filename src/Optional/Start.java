@@ -23,8 +23,6 @@ public class Start {
             Optional<Person> optionalPerson = Optional.ofNullable(person);
 
 
-
         });
-
     }
 }
