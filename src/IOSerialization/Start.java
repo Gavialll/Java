@@ -19,7 +19,7 @@ public class Start {
 
 
         Methods methods = new Methods();
-        methods.serialize(list, "/Users/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
+        methods.serialize(list, "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
 
         List<Employee> test = (List<Employee>) methods.deSerialize("/Users/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
 
