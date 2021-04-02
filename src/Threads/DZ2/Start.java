@@ -18,7 +18,7 @@ public class Start {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введіть скільки чисел Фібоначи Ви хочете бачити?: ");
-        Integer integer = scanner.nextInt();
+        int integer = scanner.nextInt();
 
         List<String> listFibo = new ArrayList<>();
         int[] x = {1,1};
@@ -29,8 +29,7 @@ public class Start {
             else {
                 int c = x[0] + x[1];
                 listFibo.add(c + ", ");
-                int x1[] = {x[1],c};
-                x = x1;
+                    x = new int[]{x[1],c};
             }
         }
         System.out.print("Звичайний порядок: ");
@@ -41,18 +40,16 @@ public class Start {
 
         System.out.println();
         System.out.print("Зворотній порядок: ");
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                List<String> list = new ArrayList<>(listFibo);
-                Collections.reverse(list);
-                for (String s : list) {
-                    System.out.print(s);
+        List<String> list = new ArrayList<>(listFibo);
+        Runnable runnable = () -> {
+            Collections.reverse(list);
+            for (String s : list) {
+                System.out.print(s);
 
-                    try {
-                        Thread.sleep(1500);
-                    } catch (Exception e) {
-                    }
+                try {
+                    Thread.sleep(1500);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         };
