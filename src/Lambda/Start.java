@@ -22,28 +22,41 @@ public class Start {
     public static void main(String[] args) {
 
         Person person0 = new Person("Tom" ,12);
-        Person person1 = new Person("Jack" ,19);
+        Person person1 = new Person("Jack" ,9);
         Person person2 = new Person("Ron" ,18);
-        Person person3 = new Person("Mark" ,11);
+        Person person3 = new Person("Mark" ,111);
 
         List<Person> people = new ArrayList<>();
         List<Person> people18 = new ArrayList<>();
-        List<Integer> charNum = new ArrayList<>();
+        List<Integer> stringLength = new ArrayList<>();
         people.add(person0);
         people.add(person1);
         people.add(person2);
         people.add(person3);
 
+
+
         people.forEach((elem) -> {if(elem.getAge() >= 18) people18.add(elem);});
 
         people.forEach((elem) -> elem.setTimesTamp(LocalDate.now().toString()));
 
-        people18.forEach((elem) -> System.out.println(elem.getAge()));
+        System.out.println("Age > 18");
+        people18.forEach((elem) -> System.out.print(elem.getName() + " "));
 
-        //people.forEach(elem -> charNum.add(elem.getTimesTamp().length()));
-        people.forEach(elem -> elem.getAge().toString().length());
-        //people.forEach(elem -> charNum.add(elem.getName().length()));
+        System.out.println();
+        System.out.println("toString ");
+        people.forEach(elem -> {
+            System.out.print("Age: " + elem.getAge().toString().length() + " ");
+            System.out.print("Name: " + elem.getName().length() + " ");
+            System.out.println("Data: " + elem.getTimesTamp().length());
+        });
 
-        charNum.forEach(elem -> System.out.println(charNum));
+        people.forEach(elem -> {
+            stringLength.add(elem.getAge().toString().length());
+            stringLength.add(elem.getName().length());
+            stringLength.add(elem.getTimesTamp().length());
+        });
+
+        stringLength.forEach(System.out::println);
     }
 }
