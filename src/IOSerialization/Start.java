@@ -18,10 +18,10 @@ public class Start {
         List<Employee> list = new ArrayList<>(Arrays.asList(ron, tom));
 
 
-        Methods methods = new Methods();
+        Methods<List<Employee>> methods = new Methods<>();
         methods.serialize(list, "/Users/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
 
-        List<Employee> test = (List<Employee>) methods.deSerialize("/sers/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
+        List<Employee> test = methods.deSerialize("/Users/andrijdutko/Desktop/GitJava/src/IOSerialization/Object");
 
         for (Employee e : test) {
             System.out.println(e.getName() + " " + e.getId() + " " + e.getSalary());

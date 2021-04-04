@@ -2,7 +2,7 @@ package IOSerialization;
 
 import java.io.*;
 
-public class Methods<T> implements Serializable {
+public class Methods<T> {
     private static final long serialVersionUID = 1L;
 
     public void serialize(T obj, String path) {
@@ -32,8 +32,4 @@ public class Methods<T> implements Serializable {
         }
         return null;
     }
-
-    public Methods() {
-    }
-
 }
