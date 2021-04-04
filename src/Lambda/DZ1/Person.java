@@ -1,4 +1,4 @@
-package Lambda;
+package Lambda.DZ1;
 
 public class Person {
     private String name;
