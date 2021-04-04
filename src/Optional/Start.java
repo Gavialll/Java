@@ -21,8 +21,21 @@ public class Start {
 
         list.forEach(person -> {
             Optional<Person> optionalPerson = Optional.ofNullable(person);
-
-
+            Person person1 = optionalPerson.orElse(new Person("Joe", 22));
+            System.out.println(person1);
         });
+        System.out.println();
+
+        List<Person> listPerson = new ArrayList<>();
+
+        list.forEach(person -> {
+            Optional<Person> optional = Optional.ofNullable(person);
+            if(optional.isPresent()) {
+               listPerson.add(new Person(optional.map(persons -> persons.getName())
+                         .orElse("Joe"), person.getAge()));
+            }
+        });
+
+        listPerson.forEach(System.out::println);
     }
 }
