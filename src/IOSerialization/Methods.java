@@ -5,7 +5,7 @@ import java.io.*;
 public class Methods<T> {
     private static final long serialVersionUID = 1L;
 
-    public void serialize(T obj, String path) {
+    public static <T> void  serialize (T obj, String path) {
         try (FileOutputStream fileOutputStream = new FileOutputStream(path);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
 
@@ -17,7 +17,7 @@ public class Methods<T> {
         }
     }
 
-    public T deSerialize(String path) {
+    public static <T> T deSerialize(String path) {
 
         try (FileInputStream fileInputStream = new FileInputStream(path);
              ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
