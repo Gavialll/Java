@@ -20,22 +20,20 @@ public class Start {
         // Зберегти не нулл об'єкти персон в новий ліст, для персон з іменем нулл використати дефолтне
 
         list.forEach(person -> {
-            Optional<Person> optionalPerson = Optional.ofNullable(person);
-            Person person1 = optionalPerson.orElse(new Person("Joe", 22));
-            System.out.println(person1);
+            Optional<Person> optional = Optional.ofNullable(person);
+            String str = optional.map(person1 -> person1.getName()).orElse("Joe");
+            optional.ifPresent(person1 -> person1.setName(str));
+                System.out.println(person);
         });
-        System.out.println();
 
-        List<Person> listPerson = new ArrayList<>();
+        List<Person> listNotNul = new ArrayList<>() {};
 
         list.forEach(person -> {
             Optional<Person> optional = Optional.ofNullable(person);
-            if(optional.isPresent()) {
-               listPerson.add(new Person(optional.map(persons -> persons.getName())
-                         .orElse("Joe"), person.getAge()));
-            }
+            optional.ifPresent(person1 -> listNotNul.add(person));
         });
 
-        listPerson.forEach(System.out::println);
+        System.out.println();
+        listNotNul.forEach(System.out::println);
     }
 }
