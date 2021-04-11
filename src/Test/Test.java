@@ -1,18 +1,14 @@
 package Test;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 
 public class Test extends Thread {
     public static void main(String[] args) throws MyShopException {
 
-        List<Device> listShop = deSerialization();
+        List<Device> listShop = DeSerialiation.deSerialization();
 
         while (true) {
 
@@ -22,17 +18,13 @@ public class Test extends Thread {
                 Scanner scanner = new Scanner(System.in);
 
                 if (scanner.hasNextInt()) {
-                    Integer optional = Optional.of(scanner.nextInt())
-                            .stream()
-                            .filter(integer -> integer <= 6)
-                            .findAny()
-                            .orElseThrow(() -> new MyShopException("Недоступний діапазон чисел"));
 
+                    int num = scanner.nextInt();
                     Thread.sleep(1000);
 
                     System.out.println("----------------------------------------------");
 
-                    switch (optional) {
+                    switch (num) {
                         case 1: {
                             System.out.println("Асортимент Магазину");
                             listPrint(listShop);
@@ -79,13 +71,19 @@ public class Test extends Thread {
                             System.out.println("Найдорожчий товар");
                             Optional<Device> device = listShop.stream()
                                     .max(comparing(Device::getPrice));
-                            device.ifPresent(value -> printDevice(value));
+                            device.ifPresent(value -> System.out.println(value));
                             break;
                         }
-                    }
 
+                        case  7: {
+                            System.exit(0);
+                        }
+                        default: {
+                            System.out.println("Недоступний діапазон чисел");
+                        }
+                    }
                     System.out.println("----------------------------------------------");
-                } else throw new MyShopException("Введіть число");
+                } else System.out.println("Введіть число");
 
             } catch (MyShopException noElem) {
                 System.out.println(noElem.getMessage());
@@ -109,38 +107,8 @@ public class Test extends Thread {
     }
 
     public static void listPrint(List<Device> listShop) {
-        System.out.println(listShop.toString()
-                .replaceAll("[\\[\\]]", "")
-                .replaceAll(", ", "\n"));
-    }
-
-    public static void printDevice(Device device) {
-        System.out.println(device
-                .toString()
-                .replaceAll("[\\[\\]]", ""));
-    }
-
-    public static List<Device> deSerialization() {
-
-        List<Device> listShop = new ArrayList<>();
-
-        try (Stream<String> shop = Files.lines(Paths.get("/Users/andrijdutko/Desktop/GitJava/src/Test/Obj.txt"))) {
-
-            String[] infoTxt = shop.toArray(String[]::new);
-
-            for (String s : infoTxt) {
-                String[] deviceInfo = s.split(", ");
-                Device device = new Device(
-                        Long.parseLong(deviceInfo[0]),
-                        deviceInfo[1],
-                        deviceInfo[2],
-                        Integer.parseInt(deviceInfo[3])
-                );
-                listShop.add(device);
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        for (Device d : listShop){
+            System.out.println(d);
         }
-        return listShop;
     }
 }
